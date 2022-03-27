@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Bood_Bank Web App</title>
+	<style>
+		*{font-size:30px;font-family:Curier;}
+		body{background-color:lightpink;}
+	</style>
+
+</head>
+<body>
+<center>
+<h1>ADD NEW ADMIN</h1>
+<br>
+<h1>Enter new admin's Username</h1>
+<form method="POST" action="/add_admin">
+<input type="text" name="un" placeholder="Enter Username" required></input>
+<br><br>
+<h1>Enter new admin's Password</h1>
+<input type="password" name="pw1" placeholder="Enter Password" required></input>
+<br><br>
+<h1>Enter confirm Password</h1>
+<input type="password" name="pw2" placeholder="Enter confirm Password" required></input>
+<br><br>
+
+<input type="submit" value="ADD" style="cursor:pointer";></input>
+<br>
+</form>
+{{msg}}
+<br>
+<a href="{{url_for('home')}}">Home page</a>
+</center>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Blood_Bank Wed App</title>
+</head>
+<body>
+	<style>
+		*{ font-size:30px;font-family:Courier;
+		background-color:lightpink;}
+		td{
+			width:150px;
+			text-align:center;
+			border: 1px solid black;
+			padding: 5px;
+		}
+	</style>
+
+
+<center>
+<h1>Welcome {{name}}</h1>
+
+<form action="/usr_home" method="POST">
+	Select your choice <select name="choice">
+		<option value="bb">Blood Bank</option>
+		<option value="bd">Blood Donor</option>
+	</select>
+	<br><br>
+	<h1>Enter your Location</h1>
+	<input type="text" name="loc" placeholder="Enter Location" required></input>
+	<br><br>
+	<input type="submit" value="Search" style="cursor:pointer";>
+</form>
+<form method="POST" action="/logout">
+<input type="submit" value="Logout" style="cursor:pointer";>
+<br><br>
+</form>
+<table>
+
+<tr>
+	<th>Blood Group</th>
+	<th>Blood Bank/Donor Name</th>
+	<th>Contact NO.</th>
+</tr>
+
+
+{% for row in msg %}
+<tr>
+	<td>{{row[0]}}</td>
+	<td>{{row[1]}}</td>
+	<td>{{row[2]}}</td>
+</tr>
+{% endfor %}
+
+</table>
+</center>
+</body>
+</html>
+	
+		

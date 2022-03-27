@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Bood_Bank Web App</title>
+	<style>
+		*{font-size:30px;font-famil:Courier;}
+		body{background-color:lightpink;}
+	</style>
+
+</head>
+<body>
+<center>
+<h1>Welcome</h1>
+<br><br>
+<form method="POST" action="/ad_admin">
+<input type="submit" value="Add New Admin" style="cursor:pointer";>
+</form>
+<br>
+<form method="POST" action="/ad_bb">
+<input type="submit" value="Add Blood_Bank/Blood_Donor" style="cursor:pointer";>
+</form>
+<br>
+<form method="POST" action="/edi_bb">
+<input type="submit" value="Edit Blood_Bank/Blood_Donor" style="cursor:pointer";>
+</form>
+<br>
+<form method="POST" action="/de_admin">
+<input type="submit" value="Delete admin" style="cursor:pointer";>
+</form>
+<br>
+<form method="POST" action="/de_bb">
+<input type="submit" value="Delete Blood_Bank/Blood_Donor" style="cursor:pointer";>
+</form>
+<br>
+<a href="{{url_for('home')}}">Home page</a>
+</center>
+
+</body>
+
+</html>
