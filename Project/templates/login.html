@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Blood_Bank Web App</title>
+	<style>
+		*{font-size:30px;font-family:Curier;}
+		body{background-color:lightpink;}
+	</style>
+
+</head>
+<body>
+<center>
+<h1> Login Page</h1>
+<form method="POST" action="/login">
+<input type="text" name="un" placeholder="enter username" required>
+<br><br>
+<input type="password" name="pw" placeholder="enter password" required>
+<br><br>
+<a href="{{url_for('fpassword')}}">forgot password</a>
+<br><br>
+<input type="submit" value="Login" style="cursor:pointer";>
+
+<br><br>
+</form>
+<a href="{{url_for('signup')}}">New User</a>
+<br><br>
+<a href="{{url_for('home')}}">Home page</a>
+<br><br>
+{{msg}}
+</center>
+</body>
+
+</html>

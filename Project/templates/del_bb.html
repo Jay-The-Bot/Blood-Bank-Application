@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Blood_Bank Wed App</title>
+	<style>
+		*{ font-size:30px;font-family:Courier;
+		background-color:lightpink;}
+	</style>
+</head>
+<body>
+<center>
+<h1>You can DELETE Blood bank/Donor by entering authenticate id number</h1>
+<form action="/del_bb" method="POST">
+	Select your choice <select name="choice1">
+		<option value="bb">Blood Bank</option>
+		<option value="bd">Blood Donor</option>
+	</select>
+<h2>Enter ID number</h2>
+	<input type="number" name="id" placeholder="id number" required></input>
+	<br><br>
+	<input type="submit" value="Delete" style="cursor:pointer";>
+</form>
+<br>
+{{ msg }}
+<br>
+<a href="{{url_for('home')}}">Home page</a>
+</center>
+</body>
+</html>
