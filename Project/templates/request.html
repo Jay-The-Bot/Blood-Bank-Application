@@ -1,22 +1,23 @@
 <html>
-
 <head>
-    <title>Request | Blood Bank</title>
-    <link rel="icon" href="Multimedia/icon.png" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Index.css">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style>
+	<title>Admin Settings | Blood Bank</title>
+	<link rel="icon" href="https://res.cloudinary.com/dm4exe2e8/image/upload/v1651155188/icon_dhpwbe.png"
+		type="image/x-icon">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two:ital@1&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Playfair+Display:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@500&family=Ephesis&family=Libre+Baskerville:wght@700&family=Merriweather:wght@900&family=Oswald:wght@600&family=Yanone+Kaffeesatz:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@500&display=swap');
 
-        .vl {
-            border-left: 3px solid black;
-            height: 300px;
-            margin-left: 620px;
-            margin-top: 150px;
+        * {
+            margin: 0;
+            padding: 0;
         }
 
         #button1 {
@@ -41,15 +42,34 @@
             box-shadow: 5px 5px #880808;
         }
 
-        #hov {
+        #head-cont{
+        height: 80px;
+        background: #dcddd1;
+        background: radial-gradient(circle, #dcddd1 0%, #898a83 100%);
+        margin-top: 0px;
+        }
+
+        #head{
+        font-family: 'Abril Fatface';
+        }
+
+        #bl:hover {
+        color: #3c005a;
+        transition: 0.5s ease-in-out;
+        }
+
+        #ba:hover {
+        color: #880808 !important;
+        transition: 0.5s ease-in-out;
+        }
+
+        #hov{
             font-family: 'Bitter';
             color: #3c005a;
             font-size: 18px;
             text-decoration: none;
             display: inline-block;
             position: relative;
-            margin-top: 0px;
-
         }
 
         #hov:after {
@@ -69,63 +89,67 @@
             transform: scaleX(1);
             transform-origin: bottom left;
         }
-    </style>
+
+	</style>
 
 </head>
-
 <body>
-    <div>
-        <nav>
-            <div class="nav-wrapper" id="head-cont" style="background: rgb(137,138,131);
-    background: linear-gradient(180deg, rgba(137,138,131,1) 0%, rgba(220,221,209,1) 35%, rgba(255,255,255,1) 100%);">
-                <a href="Index.html" class="brand-logo" style="margin-top: -25px; padding-left: 40px;"><span id="head"
-                        style="color: #880808;">
-                        <h2 id="bl">Blood <span id="ba" style="color: #3c005a;">Bank</span></h2>
-                    </span></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-left: 5px;">
-                    <li><a href="usr_home1.html"
-                            style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
-                            id="hov">Search</a>
-                    <li><a href="#" style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
-                            id="hov">Request</a>
-                    <li><a href="login1.html"
-                            style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
-                            id="hov">User</a>
-                    <li><a href="a_login1.html" style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
-                            id="hov">Admin</a>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div>
-        <div style="margin-top: 100px; margin-left: 100px;font-family: Sansita Swashed; color: #880808; font-size: 2.5vw;">
-            Request specific blood </div><br>
-        <div style="margin-top: 30px; margin-left: 100px;">
-            <form method="POST">
-                <label style="  font-family:Playfair Display; color: #3c005a; font-size: 1.5vw;" for="blood_type">Enter Blood type :
-                    &nbsp; </label>
-                <input class="browser-default" style="height: 30px; width: 150px; margin-left: 35px;" type="text" name="blood_type"
-                    id="blood_type" required></input>
-                <br><br>
-                
-                <label style="font-family:Playfair Display; color: #3c005a; font-size: 1.5vw;" for="loc">Enter location : &nbsp;
-                </label>
-                <input class="browser-default" style=" height: 30px; width: 150px; margin-left: 60px;" type="text" name="loc" id="loc"
-                    required></input>
-                <br><br>
-                
-                <label for="cont" style="font-family:Playfair Display; color: #3c005a; font-size: 1.5vw;">Enter phone number : &nbsp;
-                </label>
-                <input class="browser-default" style="height: 30px; width: 150px;" type="number" name="cont" id="cont" required></input>
-                <br><br><br>
-                <input id="button1" type="submit" value="Request" style="cursor:pointer;">
-                <a href="Index.html">
-                    <input id="button1" value="Home" style="cursor:pointer; margin-left: 150px;"></input>
-                </a>
-            </form>
-        </div>
-        <img src="Multimedia/C3.png" style="margin-top: -200px; width: 550px; margin-left: 800px; position: fixed;">
+   <div>
+		<nav>
+			<div class="nav-wrapper" id="head-cont" style="background: rgb(137,138,131);
+		    background: linear-gradient(180deg, rgba(137,138,131,1) 0%, rgba(220,221,209,1) 35%, rgba(255,255,255,1) 100%);">
+				<a href="{{url_for('home')}}" class="brand-logo" style="margin-top: -25px; padding-left: 40px;"><span id="head"
+						style="color: #880808;">
+						<h2 id="bl">Blood <span id="ba" style="color: #3c005a;">Bank</span></h2>
+					</span></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-left: 5px;">
+					<li><a href="{{url_for('usr_home')}}"
+							style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
+							id="hov">Search</a>
+					<li><a href="{{url_for('reques')}}" style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
+							id="hov">Request</a>
+					<li><a href="{{url_for('login')}}" style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
+							id="hov">User</a>
+					<li><a href="{{url_for('a_admin')}}"
+							style="text-decoration: none; margin-top: 10px; width: 100px; text-align: center;"
+							id="hov">Admin</a>
+				</ul>
+			</div>
+		</nav>
     </div>
 
+	<div>
+		<div style="margin-top: 100px; margin-left: 100px;font-family: Sansita Swashed; color: #880808; font-size: 2.5vw;">
+			Request specific blood </div><br>
+		<div style="margin-top: 30px; margin-left: 100px;">
+			<form method="POST" action="/reque">
+				<label style="  font-family:Playfair Display; color: #3c005a; font-size: 1.5vw;" for="blood_type">Enter
+					Blood type :
+					&nbsp; </label>
+				<input class="browser-default" style="height: 30px; width: 150px; margin-left: 35px;" type="text"
+					name="blood_type" id="blood_type" required></input>
+				<br><br>
+	
+				<label style="font-family:Playfair Display; color: #3c005a; font-size: 1.5vw;" for="loc">Enter location :
+					&nbsp;
+				</label>
+				<input class="browser-default" style=" height: 30px; width: 150px; margin-left: 60px;" type="text"
+					name="loc" id="loc" required></input>
+				<br><br>
+	
+				<label for="cont" style="font-family:Playfair Display; color: #3c005a; font-size: 1.5vw;">Enter phone number
+					: &nbsp;
+				</label>
+				<input class="browser-default" style="height: 30px; width: 150px;" type="number" name="cont" id="cont"
+					required></input>
+				<br><br><br>
+				<input id="button1" type="submit" value="Request" style="cursor:pointer;">
+				<a href="{{url_for('home')}}">
+					<input id="button1" value="Home" style="cursor:pointer; margin-left: 150px;"></input>
+				</a>
+			</form>
+		</div>
+		<img src="https://res.cloudinary.com/dm4exe2e8/image/upload/v1651187985/C3_vz1zay.png" style="margin-top: -200px; width: 550px; margin-left: 800px; position: fixed;">
+	</div>
 </body>
 </html>

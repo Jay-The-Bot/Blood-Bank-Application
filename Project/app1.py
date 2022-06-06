@@ -12,15 +12,17 @@ app.config['MYSQL_DB']='flask'
 app.config["MAIL_SERVER"]= "smtp.gmail.com"
 app.config["MAIL_PORT"]=587
 app.config["MAIL_USERNAME"]="bhangeprasad16@gmail.com"
-app.config["MAIL_PASSWORD"]="Prasad@123"
+app.config["MAIL_PASSWORD"]="Prasad@234"
 app.config["MAIL_USE_TLS"]=True
 app.config["MAIL_USE_SSL"]=False
+
 
 mail=Mail(app)
 
 mysql=MySQL(app)
 
 app.secret_key="Prasadbhange"
+
 
 @app.route("/fpassword",methods=["GET","POST"])
 def fpassword():
@@ -60,6 +62,11 @@ def home():
 def a_admin():
 	return render_template ("a_login.html")	
 
+@app.route("/reques",methods=["GET","POST"])
+def reques():
+	return render_template ("request.html")	
+
+
 @app.route("/add_admin",methods=["GET","POST"])
 def add_admin():
 	if request.method=="POST":
@@ -77,11 +84,33 @@ def add_admin():
 
 			except Exception as e:
 				mysql.connection.rollback()
-				return render_template("add_admin.html",msg=e)
+				return render_template("add_admin.html",msg="Admin already exists")
 		else:
 			return render_template("add_admin.html",msg="password did not match")
 	else:
 		return render_template("add_admin.html")
+
+@app.route("/reque",methods=["GET","POST"])
+def reque():
+	if request.method=="POST":
+		type=request.form["type"]
+		loc=request.form["loc"]
+		num=int(request.form["num"])
+		try:
+			#cursor=db.cursor()
+			cursor=mysql.connection.cursor()
+			sql="insert into request values('%s','%s','%d')"
+			cursor.execute(sql%(type,loc,num))
+			mysql.connection.commit()
+			return render_template("request.html",msg="Requested successfully")
+		except Exception as e:
+			mysql.connection.rollback()
+			return render_template("request.html",msg=e)
+		
+	else:
+		return render_template("request.html")
+
+
 
 @app.route("/add_bb",methods=["GET","POST"])
 def add_bb():
@@ -168,9 +197,9 @@ def del_admin():
 
 		except Exception as e:
 			mysql.connection.rollback()
-			return render_template("del_admin.html",msg=e)
+			return render_template("del_admin.html",msg="admin doesn't exists")
 	else:
-		return render_template("del_admin.html")
+		return render_template("del_admin.html",msg="admin doesn't exists")
 
 @app.route("/del_bb",methods=["GET","POST"])
 def del_bb():
@@ -300,11 +329,11 @@ def admin_menu():
 			cursor.execute(sql%(un,pw))
 			data=cursor.fetchall()
 			if len(data)==0:
-				return render_template("add_admin.html",msg="invalid login")
+				return render_template("a_login.html",msg="invalid login")
 			else:
 				return render_template("admin_menu.html")
 		except Exception as e:
-			return render_template("add_admin.html",msg=e)
+			return render_template("a_login.html",msg=e)
 
 	else:
 		return render_template("a_login.html")
@@ -328,6 +357,30 @@ def de_admin():
 @app.route("/de_bb",methods=["GET","POST"])
 def de_bb():
 	return render_template("del_bb.html")
+
+@app.route("/show_home",methods=["GET","POST"])
+def show_home():
+	if request.method=="POST":
+		loc=request.form["loc"]
+		try:
+			#cursor=db.cursor()
+			cursor=mysql.connection.cursor()
+			sql="select * from request where loc='%s'"
+			cursor.execute(sql%(loc))
+			data=cursor.fetchall()
+			mysql.connection.commit()
+			return render_template("show.html",msg=data)
+		except Exception as e:
+			mysql.connection.rollback()
+			return render_template("show.html",msg=e)
+	else:
+			return render_template("show.html")
+
+@app.route("/re_bb",methods=["GET","POST"])
+def re_bb():
+	return render_template("show.html")
+
+
 
 
 if __name__=="__main__":
