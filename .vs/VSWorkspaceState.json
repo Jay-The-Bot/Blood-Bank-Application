@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Project",
-    "\\Project\\templates"
+    "\\Project\\Templates",
+    "\\Project\\Templates\\JS"
   ],
-  "SelectedNode": "\\Project\\templates\\js",
+  "SelectedNode": "\\Project\\app1.py",
   "PreviewInSolutionExplorer": false
 }
